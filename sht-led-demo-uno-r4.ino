@@ -75,6 +75,32 @@ static const double  BASELINE_SCALE_FACTOR = 0.98;
 
 static TwoWire&      SHT_I2C_INTERFACE     = Wire1; // Wire1 = Uno R4 QWIIC port
 
+// ----------------------------------------
+// Global variables
+ArduinoLEDMatrix matrix;
+SHTSensor sht(SHTSensor::SHT4X);
+
+// display range; adjusted in setup()
+uint8_t minVal = 0;
+uint8_t maxVal = 100;
+
+// ----------------------------------------
+// helper functions
+void ledPanic()
+{
+  uint8_t offFrame[ROWS][COLUMNS]  = { 0 };
+  uint8_t onFrame[ROWS][COLUMNS]   = { 0 };
+  std::fill_n(&onFrame[0][0], ROWS*COLUMNS, 1);
+  
+  while (true) {
+    matrix.renderBitmap(onFrame, ROWS, COLUMNS);
+    delay(500);
+    matrix.renderBitmap(offFrame, ROWS, COLUMNS);
+    delay(500);
+  }
+}
+
+
 // shift bar chart one column to the left, and add the new value in the rightmost column
 // note: "left" and "right" are defined based on the PCB silkscreen text
 void insert_right(uint8_t frame[ROWS][COLUMNS], uint8_t value, bool fill = true) 
@@ -93,13 +119,7 @@ void insert_right(uint8_t frame[ROWS][COLUMNS], uint8_t value, bool fill = true)
 }
 
 // ----------------------------------------
-ArduinoLEDMatrix matrix;
-SHTSensor sht(SHTSensor::SHT4X);
-
-// display range; adjusted in setup()
-uint8_t minVal = 0;
-uint8_t maxVal = 100;
-
+// main code
 void setup() 
 {
   matrix.begin();
@@ -110,7 +130,7 @@ void setup()
 
   if (!sht.init(SHT_I2C_INTERFACE)) {
       Serial.print("init(): failed. Sketch halted\n");
-      for (;;) delay(500);
+      ledPanic();
   }
 
   //  Calculate min value (baseline)
