@@ -1,6 +1,8 @@
 # sht-led-demo-uno-r4
 A demo for using the LED Matrix of the Arduino Uno R4 Wifi as a time series graph
 
+![setup](assets/uno-r4-led-demo.jpeg)
+
 ## Usage:
 Connect your SHT40 to the QWIIC socket on the Arduino. If you're not
 using the QWIIC connector, adapt the `SHT_I2C_INTERFACE` variable below
