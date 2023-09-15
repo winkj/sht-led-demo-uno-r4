@@ -53,8 +53,8 @@
  *   no practical impact
  *
  * Dependencies:
- *   This demo uses the 'arduino-i2c-sht4x' library available via the Arduino
- *   IDE Library Manager, or from
+ *   This demo uses the 'Sensirion I2C SHT4x' library available via the
+ *   Arduino IDE Library Manager, or from
  *   https://github.com/Sensirion/arduino-i2c-sht4x
  */
 
