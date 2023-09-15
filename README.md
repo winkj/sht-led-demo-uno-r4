@@ -5,10 +5,10 @@ A demo for using the LED Matrix of the Arduino Uno R4 Wifi as a time series grap
 
 ## Usage:
 Connect your SHT40 to the QWIIC socket on the Arduino. If you're not
-using the QWIIC connector, adapt the `SHT_I2C_INTERFACE` variable below
+using the QWIIC connector, adapt the `SHT_I2C_INTERFACE` variable
 
 After startup, the lowest row should barely come on. If you blow on the
-sensor to warm it up, you should see the signal raise
+sensor to warm it up, you should see the signal rise
 
 To reset the baseline value, simply reset the board
 
