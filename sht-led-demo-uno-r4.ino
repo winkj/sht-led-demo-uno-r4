@@ -149,7 +149,7 @@ bool Sht4xMeasureHighPrecision()
 void setup() 
 {
   matrix.begin();
-  Wire1.begin();
+  SHT_I2C_INTERFACE.begin();
   Serial.begin(115200);
 
   while (!Serial) {
@@ -159,7 +159,7 @@ void setup()
 
   uint32_t serialNumber;
 
-  sht4x.begin(Wire1);
+  sht4x.begin(SHT_I2C_INTERFACE);
 
   // probe sensor by reading serial number
   error = sht4x.serialNumber(serialNumber);
