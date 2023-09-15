@@ -27,7 +27,7 @@
  *   using the QWIIC connector, adapt the 'SHT_I2C_INTERFACE' variable below
  *
  *   After startup, the lowest row should barely come on. If you blow on the
- *   sensor to warm it up, you should see the signal raise
+ *   sensor to warm it up, you should see the signal rise
  *
  *   To reset the baseline value, simply reset the board
  *
