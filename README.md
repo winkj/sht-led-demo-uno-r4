@@ -3,6 +3,15 @@ A demo for using the LED Matrix of the Arduino Uno R4 Wifi as a time series grap
 
 ![setup](assets/uno-r4-led-demo.jpeg)
 
+# Dependencies
+You can download and install all dependencies using the built-in library
+manager of the Arduino IDE, or download them from github and copy them
+into your [Arduino library](https://docs.arduino.cc/software/ide-v1/tutorials/installing-libraries)
+folder.
+
+- [Sensirion Core](https://github.com/Sensirion/arduino-core)
+- [Sensirion I2C SHT4x](https://github.com/Sensirion/arduino-i2c-sht4x)
+
 ## Usage:
 Connect your SHT40 to the QWIIC socket on the Arduino. If you're not
 using the QWIIC connector, adapt the `SHT_I2C_INTERFACE` variable
