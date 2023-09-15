@@ -132,10 +132,10 @@ void insert_right(uint8_t frame[ROWS][COLUMNS], uint8_t value, bool fill = true)
  * Run a high precision measurement on SHT4x sensor
  * @return bool: true on succes, false if measurement failed.
  */
-bool Sht4xMeasureHighPrecision() {
+bool Sht4xMeasureHighPrecision() 
+{
   error = sht4x.measureHighPrecision(temperature, humidity);
-  if (error)
-  {
+  if (error) {
     Serial.println("Error in measureHighPrecision() during baseline calculation; retry");
     errorToString(error, errorMessage, 256);
     Serial.println(errorMessage);
@@ -173,8 +173,7 @@ void setup()
   //  Calculate min value (baseline)
   bool baselineInitialized = false;
   while (!baselineInitialized) {
-    if (!Sht4xMeasureHighPrecision())
-    {
+    if (!Sht4xMeasureHighPrecision()) {
       delay(500);
       continue;
     }
